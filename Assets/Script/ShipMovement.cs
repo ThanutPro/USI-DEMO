@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
+    [SerializeField]
     public float moveSpeed = 5;
 
     // Start is called before the first frame update

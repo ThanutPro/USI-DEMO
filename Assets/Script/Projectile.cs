@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField]
     public float moveSpeed = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
+        // Move the projectile upwards
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
     }
 
-    private void OntriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy");
+        // Check if the projectile collides with an enemy
+        if (collision.gameObject.CompareTag("Enemy"))
         {
+            // Destroy the enemy and the projectile
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
-
 }

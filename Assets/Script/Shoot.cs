@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    [SerializeField]
     public GameObject projectilePrefab; // Prefab for the projectile
     public float shootCooldown = 0.2f; // Cooldown time in seconds
     private float lastShootTime = 0f; // Time when the last shot was fired
