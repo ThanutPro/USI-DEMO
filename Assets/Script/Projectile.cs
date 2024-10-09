@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    public float moveSpeed = 5;
+    public float moveSpeed = 5f;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +21,12 @@ public class Projectile : MonoBehaviour
         {
             // Destroy the enemy and the projectile
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
+        // Check if the projectile collides with the boundary
+        if (collision.gameObject.CompareTag("Boundary"))
+        {
             Destroy(gameObject);
         }
     }
