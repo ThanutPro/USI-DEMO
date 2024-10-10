@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     public float moveSpeed = 10f;
     public GameObject explosionPrefab;
+    private PointManager pointManager;
 
     AudioManager audioManager;
 
@@ -16,6 +17,11 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    void Start()
+    {
+        pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +42,7 @@ public class Projectile : MonoBehaviour
 
             // Destroy the enemy and the projectile
             Destroy(collision.gameObject);
+            pointManager.UpdateScore(50);
             Destroy(gameObject);
 
             // Destroy the explosion after a fixed duration
