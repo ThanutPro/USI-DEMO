@@ -126,4 +126,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   explosionPrefab: {fileID: 7766029746125362226, guid: 7856ce6567dcdda429e926d699873058, type: 3}
+  explosionAsterPrefab: {fileID: 3036822083908929734, guid: 265259bd079e69f48997230942f6c706, type: 3}
   explosionDuration: 2

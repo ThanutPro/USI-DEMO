@@ -6,7 +6,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField]
     public float moveSpeed = 10f;
-    public GameObject explosionPrefab;
+    public GameObject explosionPrefab; // Explosion prefab for enemies
+    public GameObject explosionAsterPrefab; // Explosion prefab for asteroids
     private PointManager pointManager;
 
     AudioManager audioManager;
@@ -36,13 +37,13 @@ public class Projectile : MonoBehaviour
         // Check if the projectile collides with an enemy
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            HandleCollision(collision, 50, audioManager.ExplodeEnemy);
+            HandleCollision(collision, 50, audioManager.ExplodeEnemy, explosionPrefab);
         }
 
         // Check if the projectile collides with an asteroid
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            HandleCollision(collision, 20, audioManager.ExplodeAsteroid); // Use different score and sound for asteroid
+            HandleCollision(collision, 20, audioManager.ExplodeAsteroid, explosionAsterPrefab); // Use different score, sound, and explosion prefab for asteroid
         }
 
         // Check if the projectile collides with the boundary
@@ -53,7 +54,7 @@ public class Projectile : MonoBehaviour
     }
 
     // General method to handle collisions with enemies and asteroids
-    private void HandleCollision(Collider2D collision, int scoreValue, AudioClip explosionSound)
+    private void HandleCollision(Collider2D collision, int scoreValue, AudioClip explosionSound, GameObject explosionPrefab)
     {
         // Play sound effect and instantiate explosion
         audioManager.PlaySFX(explosionSound);
