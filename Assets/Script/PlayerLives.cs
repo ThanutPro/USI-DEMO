@@ -29,7 +29,7 @@ public class PlayerLives : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.tag == "Enemy")
+        if (collision.collider.gameObject.tag == "Enemy" || collision.collider.gameObject.tag == "Asteroid")
         {
             HandleHit();
             Destroy(collision.collider.gameObject);
@@ -38,7 +38,7 @@ public class PlayerLives : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy Projectile")
+        if (collision.gameObject.tag == "Enemy Projectile" || collision.gameObject.tag == "Asteroid")
         {
             HandleHit();
             Destroy(collision.gameObject);

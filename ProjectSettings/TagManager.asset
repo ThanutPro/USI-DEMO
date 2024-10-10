@@ -8,11 +8,12 @@ TagManager:
   - Enemy
   - Audio
   - Enemy Projectile
+  - Asteroid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Asteroid
   - Water
   - UI
   - 

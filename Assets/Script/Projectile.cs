@@ -36,17 +36,13 @@ public class Projectile : MonoBehaviour
         // Check if the projectile collides with an enemy
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Play sound effect and instantiate explosion
-            audioManager.PlaySFX(audioManager.ExplodeEnemy);
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            HandleCollision(collision, 50, audioManager.ExplodeEnemy);
+        }
 
-            // Destroy the enemy and the projectile
-            Destroy(collision.gameObject);
-            pointManager.UpdateScore(50);
-            Destroy(gameObject);
-
-            // Destroy the explosion after a fixed duration
-            Destroy(explosion, explosionDuration);
+        // Check if the projectile collides with an asteroid
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            HandleCollision(collision, 20, audioManager.ExplodeAsteroid); // Use different score and sound for asteroid
         }
 
         // Check if the projectile collides with the boundary
@@ -54,5 +50,21 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    // General method to handle collisions with enemies and asteroids
+    private void HandleCollision(Collider2D collision, int scoreValue, AudioClip explosionSound)
+    {
+        // Play sound effect and instantiate explosion
+        audioManager.PlaySFX(explosionSound);
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+        // Destroy the asteroid/enemy and the projectile
+        Destroy(collision.gameObject);
+        pointManager.UpdateScore(scoreValue);
+        Destroy(gameObject);
+
+        // Destroy the explosion after a fixed duration
+        Destroy(explosion, explosionDuration);
     }
 }
