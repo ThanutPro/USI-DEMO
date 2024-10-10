@@ -9,6 +9,13 @@ public class Shoot : MonoBehaviour
     public float shootCooldown = 0.2f; // Cooldown time in seconds
     private float lastShootTime = 0f; // Time when the last shot was fired
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +23,7 @@ public class Shoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastShootTime + shootCooldown)
         {
             // Fire the projectile
+            audioManager.PlaySFX(audioManager.LaserPlayer);
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             // Update the lastShootTime to the current time
             lastShootTime = Time.time;

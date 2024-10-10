@@ -8,6 +8,13 @@ public class Projectile : MonoBehaviour
     public float moveSpeed = 10f;
     public GameObject explosionPrefab;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +28,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {;
             // Destroy the enemy and the projectile
+            audioManager.PlaySFX(audioManager.ExplodeEnemy);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(gameObject);
