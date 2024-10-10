@@ -8,6 +8,8 @@ public class PlayerLives : MonoBehaviour
     public int lives = 3;
     public Image[] livesUI;
     public GameObject explosionPrefab;
+    public PointManager pointManager;
+    public GameOverScreen gameOverScreen; // Reference to the GameOverScreen
 
     AudioManager audioManager;
 
@@ -21,15 +23,9 @@ public class PlayerLives : MonoBehaviour
         // You could initialize UI or other things here if needed
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Handle any update logic here if necessary
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.tag == "Enemy" || collision.collider.gameObject.tag == "Asteroid")
+        if (collision.collider.gameObject.CompareTag("Enemy") || collision.collider.gameObject.CompareTag("Asteroid"))
         {
             HandleHit();
             Destroy(collision.collider.gameObject);
@@ -38,7 +34,7 @@ public class PlayerLives : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy Projectile" || collision.gameObject.tag == "Asteroid")
+        if (collision.gameObject.CompareTag("Enemy Projectile") || collision.gameObject.CompareTag("Asteroid"))
         {
             HandleHit();
             Destroy(collision.gameObject);
@@ -62,10 +58,16 @@ public class PlayerLives : MonoBehaviour
             livesUI[i].enabled = i < lives;
         }
 
-        // Check if lives are zero or less, destroy player object
+        // Check if lives are zero or less
         if (lives <= 0)
         {
             Destroy(gameObject);
+
+            // Call the GameOverScreen setup
+            gameOverScreen.Setup();
+
+            // Optionally, update high score
+            pointManager.HighScoreUpdate();
         }
     }
 }
