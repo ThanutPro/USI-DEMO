@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     public GameObject explosionPrefab;
 
     // Update is called once per frame
