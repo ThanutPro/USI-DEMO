@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip LaserEnemy;
     public AudioClip ExplodeEnemy;
     public AudioClip ExplodeAster;
+    public AudioClip Hurt;
 
     // Start is called before the first frame update
     private void Start()

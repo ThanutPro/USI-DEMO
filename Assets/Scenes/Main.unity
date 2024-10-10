@@ -1037,6 +1037,7 @@ MonoBehaviour:
   - {fileID: 1579126294}
   - {fileID: 1402515458}
   - {fileID: 1532369310}
+  explosionPrefab: {fileID: 7791856884663641342, guid: 505d625f0b15b73458d063a9d40004c5, type: 3}
 --- !u!1 &1165150825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,7 +2136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1741285509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b2030a4ed124b4f8c4e9cd39893030, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ca8e55d9f1d87340b886b37e186d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1816955549}
@@ -2145,6 +2146,7 @@ MonoBehaviour:
   LaserEnemy: {fileID: 8300000, guid: 37e0c3398700c4f4c9f678ef3163c963, type: 3}
   ExplodeEnemy: {fileID: 8300000, guid: 37e0c3398700c4f4c9f678ef3163c963, type: 3}
   ExplodeAster: {fileID: 0}
+  Hurt: {fileID: 8300000, guid: 85212a828cab4b145a0ed902baf3e526, type: 3}
 --- !u!4 &1741285511
 Transform:
   m_ObjectHideFlags: 0
