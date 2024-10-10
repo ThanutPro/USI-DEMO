@@ -796,6 +796,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &696441734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 241750301346010788, guid: 613eab009229aa4489680022879965fe, type: 3}
+  m_PrefabInstance: {fileID: 241750300763879032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &696441741
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696441734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dec5662f17ff96549bef391f2686cc02, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &767783214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,9 +1609,9 @@ MonoBehaviour:
   musicSource: {fileID: 1816955549}
   SFXSource: {fileID: 213524072}
   background: {fileID: 8300000, guid: a3673066137bab4448994ce97d029fb3, type: 3}
-  LaserPlayer: {fileID: 0}
-  LaserEnemy: {fileID: 0}
-  ExplodeEnemy: {fileID: 0}
+  LaserPlayer: {fileID: 8300000, guid: 93f99044ce22e494299c19eac8f5c0b6, type: 3}
+  LaserEnemy: {fileID: 8300000, guid: 37e0c3398700c4f4c9f678ef3163c963, type: 3}
+  ExplodeEnemy: {fileID: 8300000, guid: 37e0c3398700c4f4c9f678ef3163c963, type: 3}
   ExplodeAster: {fileID: 0}
 --- !u!4 &1741285511
 Transform:

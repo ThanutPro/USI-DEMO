@@ -10,6 +10,9 @@ public class Projectile : MonoBehaviour
 
     AudioManager audioManager;
 
+    // Set a fixed explosion duration in seconds
+    public float explosionDuration = 2f;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -26,13 +29,17 @@ public class Projectile : MonoBehaviour
     {
         // Check if the projectile collides with an enemy
         if (collision.gameObject.CompareTag("Enemy"))
-        {;
-            // Destroy the enemy and the projectile
+        {
+            // Play sound effect and instantiate explosion
             audioManager.PlaySFX(audioManager.ExplodeEnemy);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // Destroy the enemy and the projectile
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            
+
+            // Destroy the explosion after a fixed duration
+            Destroy(explosion, explosionDuration);
         }
 
         // Check if the projectile collides with the boundary
