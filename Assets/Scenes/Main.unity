@@ -2176,6 +2176,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97bd292a3a078004c879c60236c95e52, type: 3}
+--- !u!1 &1189073091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189073094}
+  - component: {fileID: 1189073093}
+  - component: {fileID: 1189073092}
+  m_Layer: 0
+  m_Name: Boundary Bottom (For Projectile)
+  m_TagString: Boundary
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &1189073092
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189073091}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &1189073093
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189073091}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1189073094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189073091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.11, y: -5.29, z: 0}
+  m_LocalScale: {x: 19.274752, y: 0.59375155, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190351843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,7 +3520,7 @@ GameObject:
   - component: {fileID: 1715811606}
   - component: {fileID: 1715811605}
   m_Layer: 0
-  m_Name: Boundary Bottom
+  m_Name: Boundary Bottom ( For Player )
   m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4077,7 +4157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b4635883b187448e4f2c4fe2dcdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
 --- !u!4 &1891716353
 Transform:
   m_ObjectHideFlags: 0
@@ -4629,6 +4709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 241750301346010788, guid: 613eab009229aa4489680022879965fe, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 241750301346010790, guid: 613eab009229aa4489680022879965fe, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -4684,7 +4768,7 @@ PrefabInstance:
     - target: {fileID: 7562523189276030532, guid: 613eab009229aa4489680022879965fe, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 6471975186975658750, guid: 3287d2d48b9cac2458a49b5ebdeb0167, type: 3}
+      objectReference: {fileID: 8971143759610482278, guid: a279c1ddcf8974f46ba5a77cb08b41e1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613eab009229aa4489680022879965fe, type: 3}
 --- !u!1001 &3418198452974993090
@@ -4755,6 +4839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1891716353}
     m_Modifications:
+    - target: {fileID: 2378451701146881352, guid: b2c848a5a9dcf1b4596be829ce486497, type: 3}
+      propertyPath: spawnMin
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7236270954941565560, guid: b2c848a5a9dcf1b4596be829ce486497, type: 3}
       propertyPath: m_Name
       value: Enemy1

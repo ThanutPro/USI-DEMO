@@ -18,39 +18,54 @@ public class PlayerLives : MonoBehaviour
 
     void Start()
     {
-        
+        // You could initialize UI or other things here if needed
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Handle any update logic here if necessary
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.tag == "Enemy")
         {
-            audioManager.PlaySFX(audioManager.Hurt);
+            HandleHit();
             Destroy(collision.collider.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            lives -= 1;
-            for(int i = 0; i < livesUI.Length; i++)
-            {
-                if(i < lives)
-                {
-                    livesUI[i].enabled = true;
-                }
-                else
-                {
-                    livesUI[i].enabled = false;
-                }
-            }
-            if(lives <= 0)
-            {
-                Destroy(gameObject);
-            }
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy Projectile")
+        {
+            HandleHit();
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void HandleHit()
+    {
+        // Play hurt sound
+        audioManager.PlaySFX(audioManager.Hurt);
+
+        // Instantiate explosion at the player's position
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+        // Reduce lives
+        lives--;
+
+        // Update the lives UI
+        for (int i = 0; i < livesUI.Length; i++)
+        {
+            livesUI[i].enabled = i < lives;
+        }
+
+        // Check if lives are zero or less, destroy player object
+        if (lives <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
